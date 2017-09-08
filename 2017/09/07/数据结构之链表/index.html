@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xaguo.github.io">
-  <title>责任链模式 | XA&#39;s blog</title>
+  <title>数据结构之链表 | XA&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="责任链模式在我们日常开发工作中随处可见。责任链模式将接收者对象连成一条链，并向上传递请求，直到有一接收者对象处理它。通过让更多对象有机会处理请求，避免了请求发送者和接收者直接的耦合。">
-<meta name="keywords" content="java,设计模式">
+  <meta name="description" content="线性表是 n 个数据元素的有限序列。 线性表分为顺序表（数组）和链表（静态链表、单链表、循环链表、双向链表）。 数组带下标，访问速度快，搜索能力强。">
+<meta name="keywords" content="数据结构,C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="责任链模式">
-<meta property="og:url" content="http://xaguo.github.io/2017/08/31/责任链模式/index.html">
+<meta property="og:title" content="数据结构之链表">
+<meta property="og:url" content="http://xaguo.github.io/2017/09/07/数据结构之链表/index.html">
 <meta property="og:site_name" content="XA&#39;s blog">
-<meta property="og:description" content="责任链模式在我们日常开发工作中随处可见。责任链模式将接收者对象连成一条链，并向上传递请求，直到有一接收者对象处理它。通过让更多对象有机会处理请求，避免了请求发送者和接收者直接的耦合。">
-<meta property="og:updated_time" content="2017-09-01T11:50:51.261Z">
+<meta property="og:description" content="线性表是 n 个数据元素的有限序列。 线性表分为顺序表（数组）和链表（静态链表、单链表、循环链表、双向链表）。 数组带下标，访问速度快，搜索能力强。">
+<meta property="og:updated_time" content="2017-09-07T15:14:13.230Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="责任链模式">
-<meta name="twitter:description" content="责任链模式在我们日常开发工作中随处可见。责任链模式将接收者对象连成一条链，并向上传递请求，直到有一接收者对象处理它。通过让更多对象有机会处理请求，避免了请求发送者和接收者直接的耦合。">
+<meta name="twitter:title" content="数据结构之链表">
+<meta name="twitter:description" content="线性表是 n 个数据元素的有限序列。 线性表分为顺序表（数组）和链表（静态链表、单链表、循环链表、双向链表）。 数组带下标，访问速度快，搜索能力强。">
   
     <link rel="alternative" href="/atom.xml" title="XA&#39;s blog" type="application/atom+xml">
   
@@ -151,36 +151,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-责任链模式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-数据结构之链表" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      责任链模式
+      数据结构之链表
     </h1>
   
 
         
-        <a href="/2017/08/31/责任链模式/" class="archive-article-date">
-  	<time datetime="2017-08-31T11:12:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-31</time>
+        <a href="/2017/09/07/数据结构之链表/" class="archive-article-date">
+  	<time datetime="2017-09-07T08:50:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>责任链模式在我们日常开发工作中随处可见。责任链模式将接收者对象连成一条链，并向上传递请求，直到有一接收者对象处理它。通过让更多对象有机会处理请求，避免了请求发送者和接收者直接的耦合。<br><a id="more"></a></p>
-<p>在责任链模式中，作为请求接收者的多个对象通过对其后继的引用而连接起来形成一条链。请求在这条链上传递，直到链上某一个接收者都可以选择自行处理请求或是向后继传递请求。</p>
-<p>发出请求的客户端并不知道链上的哪一个接收者会处理这个请求，从而实现了客户端和接收者之间的藕合。</p>
-<p>责任链模式的应用：</p>
-<ol>
-<li>Exception Handling 异常传递</li>
-<li>JavaScript Event Model JavaScript事件模型</li>
-<li>FilterChain in Web 过滤链</li>
-</ol>
-
+        <p>线性表是 n 个数据元素的有限序列。</p>
+<p>线性表分为<strong>顺序表</strong>（数组）和<strong>链表</strong>（静态链表、单链表、循环链表、双向链表）。</p>
+<p>数组带下标，访问速度快，搜索能力强。</p>
+<a id="more"></a>
       
 
       
@@ -193,11 +187,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
@@ -253,7 +247,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xaguo.github.io/2017/08/31/责任链模式/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xaguo.github.io/2017/09/07/数据结构之链表/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -267,18 +261,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/01/java注解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          java注解
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/30/代理模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">代理模式</div>
+    <a href="/2017/09/05/数据结构之栈/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构之栈</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -291,7 +276,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="责任链模式" data-title="责任链模式" data-url="http://xaguo.github.io/2017/08/31/责任链模式/"></div>
+	<div class="ds-thread" data-thread-key="数据结构之链表" data-title="数据结构之链表" data-url="http://xaguo.github.io/2017/09/07/数据结构之链表/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -314,8 +299,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://xaguo.github.io/2017/08/31/责任链模式/", 
-    sourceId: "责任链模式",
+    url: "http://xaguo.github.io/2017/09/07/数据结构之链表/", 
+    sourceId: "数据结构之链表",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
