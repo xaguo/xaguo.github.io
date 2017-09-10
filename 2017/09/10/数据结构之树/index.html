@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xaguo.github.io">
-  <title>相册 | XA&#39;s blog</title>
+  <title>数据结构之树 | XA&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摄影摄影">
+  <meta name="description" content="树是节点的有限集合。">
+<meta name="keywords" content="数据结构,C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://xaguo.github.io/2017/05/01/相册/index.html">
+<meta property="og:title" content="数据结构之树">
+<meta property="og:url" content="http://xaguo.github.io/2017/09/10/数据结构之树/index.html">
 <meta property="og:site_name" content="XA&#39;s blog">
-<meta property="og:description" content="摄影摄影">
-<meta property="og:image" content="http://xaguo.github.io/2017/05/01/相册/Octocat.png">
-<meta property="og:image" content="http://xaguo.github.io/2017/05/01/相册/Octocat.png">
-<meta property="og:updated_time" content="2017-05-04T05:01:05.084Z">
+<meta property="og:description" content="树是节点的有限集合。">
+<meta property="og:image" content="http://xaguo.github.io/2017/09/10/数据结构之树/a.png">
+<meta property="og:image" content="http://xaguo.github.io/2017/09/10/数据结构之树/b.png">
+<meta property="og:updated_time" content="2017-09-10T02:17:47.396Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="摄影摄影">
-<meta name="twitter:image" content="http://xaguo.github.io/2017/05/01/相册/Octocat.png">
+<meta name="twitter:title" content="数据结构之树">
+<meta name="twitter:description" content="树是节点的有限集合。">
+<meta name="twitter:image" content="http://xaguo.github.io/2017/09/10/数据结构之树/a.png">
   
     <link rel="alternative" href="/atom.xml" title="XA&#39;s blog" type="application/atom+xml">
   
@@ -153,29 +154,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-相册" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-数据结构之树" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      数据结构之树
     </h1>
   
 
         
-        <a href="/2017/05/01/相册/" class="archive-article-date">
-  	<time datetime="2017-05-01T04:33:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-01</time>
+        <a href="/2017/09/10/数据结构之树/" class="archive-article-date">
+  	<time datetime="2017-09-10T01:32:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摄影摄影</p>
+        <p>树是节点的有限集合。</p>
 <a id="more"></a>
-<p><img src="/2017/05/01/相册/Octocat.png" alt=""><img src="/2017/05/01/相册/Octocat.png" alt=""></p>
+<p><img src="/2017/09/10/数据结构之树/a.png" alt="基本概念"></p>
+<p>双亲：最顶端的节点（A）是根节点也称为双亲。</p>
+<p>孩子：（B）的孩子是（E）、（F）,（A）的孩子是（B）、（C）、（D）。</p>
+<p>度：当前节点直接的孩子。（A）的度为 3，(B)的度为 2，（C）的度为 0。</p>
+<p>叶子：树的终端节点。（E）、（F）、（C）、（G)、（H）。</p>
+<p>根：树的非终端节点。(A)、（B）、（D).</p>
+<p>有序树：孩子节点不可以换顺序。无序树：孩子节点可以换顺序。</p>
+<p>祖先：指定节点向上到根节点路过的所有节点。(E)的祖先是(B)、(A),(G)的祖先是(D)、(A)</p>
+<p>子孙：从指定节点生出的子节点，以及生出节点的子节点，都属于当前节点的子孙。(D)的子孙包括（G）、（H）。(A)的子孙包括其他所有节点。</p>
+<p><img src="/2017/09/10/数据结构之树/b.png" alt="深度"></p>
+<p>节点深度：第 n 层的节点深度为 n。</p>
+<p>树深度：树中节点所具有的最大深度。这款是深度为 3 。</p>
+<p>森林：多棵树组成森林，一棵树也可以看成多棵不同子树组成的子节点。</p>
+<p>二叉树：所有节点的度都小于 2。如下图右。</p>
+<p>！<a href="数据结构之树/d.png">二叉树</a></p>
+<p>二叉树的遍历：</p>
+<p>！<a href="数据结构之树/e.png">二叉树</a></p>
+<p>前序遍历：根左右。中序遍历：左根右。后续遍历：左右根。</p>
+<p>树的应用：1 压缩软件-赫夫曼树。2 搜索-人机对战。</p>
 
       
 
@@ -184,6 +203,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -234,7 +268,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xaguo.github.io/2017/05/01/相册/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xaguo.github.io/2017/09/10/数据结构之树/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -248,15 +282,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/02/Demo/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Demo
-        
-      </div>
-    </a>
   
+    <a href="/2017/09/07/数据结构之线性表/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构之线性表</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -267,7 +297,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="相册" data-title="相册" data-url="http://xaguo.github.io/2017/05/01/相册/"></div>
+	<div class="ds-thread" data-thread-key="数据结构之树" data-title="数据结构之树" data-url="http://xaguo.github.io/2017/09/10/数据结构之树/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -290,8 +320,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://xaguo.github.io/2017/05/01/相册/", 
-    sourceId: "相册",
+    url: "http://xaguo.github.io/2017/09/10/数据结构之树/", 
+    sourceId: "数据结构之树",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
