@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xaguo.github.io">
-  <title>Tag: 数据结构 | XA&#39;s blog</title>
+  <title>Python操作MySQL | XA&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ѧϰ������">
-<meta property="og:type" content="website">
-<meta property="og:title" content="XA&#39;s blog">
-<meta property="og:url" content="http://xaguo.github.io/tags/数据结构/index.html">
+  <meta name="description" content="使用 PyMySQL DB API：  connection : 建立数据库连接 cursor : 执行 SQL、获取数据  &amp;lt;!-more–&amp;gt; connection 的使用 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575">
+<meta name="keywords" content="python,MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python操作MySQL">
+<meta property="og:url" content="http://xaguo.github.io/2017/09/26/Python操作MySQL/index.html">
 <meta property="og:site_name" content="XA&#39;s blog">
-<meta property="og:description" content="ѧϰ������">
+<meta property="og:description" content="使用 PyMySQL DB API：  connection : 建立数据库连接 cursor : 执行 SQL、获取数据  &amp;lt;!-more–&amp;gt; connection 的使用 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575">
+<meta property="og:updated_time" content="2017-09-26T04:21:13.767Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XA&#39;s blog">
-<meta name="twitter:description" content="ѧϰ������">
+<meta name="twitter:title" content="Python操作MySQL">
+<meta name="twitter:description" content="使用 PyMySQL DB API：  connection : 建立数据库连接 cursor : 执行 SQL、获取数据  &amp;lt;!-more–&amp;gt; connection 的使用 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575">
   
     <link rel="alternative" href="/atom.xml" title="XA&#39;s blog" type="application/atom+xml">
   
@@ -149,312 +151,177 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Python操作MySQL" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python操作MySQL
+    </h1>
+  
+
+        
+        <a href="/2017/09/26/Python操作MySQL/" class="archive-article-date">
+  	<time datetime="2017-09-26T04:07:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-26</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用 <a href="https://github.com/PyMySQL/PyMySQL/" target="_blank" rel="external">PyMySQL</a></p>
+<p>DB API：</p>
+<ul>
+<li>connection : 建立数据库连接</li>
+<li>cursor : 执行 SQL、获取数据</li>
+</ul>
+<p>&lt;!-more–&gt;</p>
+<p>connection 的使用</p>
+<pre><code><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">	<span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line">	<span class="keyword">import</span> pymysql</div><div class="line">	conn = pymysql.connect(</div><div class="line">    host=<span class="string">'127.0.0.1'</span>,</div><div class="line">    user=<span class="string">'root'</span>,</div><div class="line">    passwd=<span class="string">'root'</span>,</div><div class="line">    db=<span class="string">'master'</span>,</div><div class="line">    charset=<span class="string">'utf8'</span></div><div class="line">	)</div><div class="line">	cursor=conn.cursor()</div><div class="line">	<span class="keyword">print</span> conn</div><div class="line">	<span class="keyword">print</span> cursor</div><div class="line">	cursor.close()</div><div class="line">	conn.close()</div><div class="line"></div><div class="line">cursor 的使用</div><div class="line"></div><div class="line">	```py</div><div class="line">	<span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line">	<span class="keyword">import</span> pymysql</div><div class="line">	conn = pymysql.connect(</div><div class="line">	    host=<span class="string">'127.0.0.1'</span>,</div><div class="line">	    user=<span class="string">'root'</span>,</div><div class="line">	    passwd=<span class="string">'root'</span>,</div><div class="line">	    db=<span class="string">'db'</span>,</div><div class="line">	    charset=<span class="string">'utf8'</span></div><div class="line">	)</div><div class="line">	cursor=conn.cursor()</div><div class="line">	sql=<span class="string">"select * from users"</span></div><div class="line">	cursor.execute(sql)</div><div class="line">	<span class="keyword">print</span> cursor.rowcount</div><div class="line">	<span class="comment"># for row in cursor:</span></div><div class="line">	<span class="comment">#     print row</span></div><div class="line">	<span class="comment"># 获取一条</span></div><div class="line">	rs=cursor.fetchone()</div><div class="line">	<span class="keyword">print</span> rs</div><div class="line">	<span class="comment"># 获取多条</span></div><div class="line">	rs = cursor.fetchmany(<span class="number">3</span>)</div><div class="line">	<span class="keyword">print</span> rs</div><div class="line">	<span class="comment"># 获取剩下的全部</span></div><div class="line">	rs=cursor.fetchall()</div><div class="line">	<span class="keyword">print</span> rs</div><div class="line">	cursor.close()</div><div class="line">	conn.close()</div><div class="line">	</div><div class="line">查询</div><div class="line"></div><div class="line">	```py</div><div class="line">	<span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line">	<span class="keyword">import</span> pymysql</div><div class="line">	conn = pymysql.connect(</div><div class="line">	    host=<span class="string">'127.0.0.1'</span>,</div><div class="line">	    user=<span class="string">'root'</span>,</div><div class="line">	    passwd=<span class="string">'root'</span>,</div><div class="line">	    db=<span class="string">'db'</span>,</div><div class="line">	    charset=<span class="string">'utf8'</span></div><div class="line">	)</div><div class="line">	cursor=conn.cursor()</div><div class="line">	sql=<span class="string">"select * from users"</span></div><div class="line">	cursor.execute(sql)</div><div class="line">	<span class="keyword">print</span> cursor.rowcount</div><div class="line">	rs=cursor.fetchall()</div><div class="line">	<span class="keyword">for</span> row <span class="keyword">in</span> rs:</div><div class="line">	    <span class="keyword">print</span>  <span class="string">"userid=%d,email=%s,password=%s"</span> % row</div><div class="line">	cursor.close()</div><div class="line">	conn.close()</div></pre></td></tr></table></figure>
+</code></pre><p>增、删、改、事务的使用</p>
+<pre><code><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div></pre></td><td class="code"><pre><div class="line">	# -*- coding: UTF-8 -*-</div><div class="line">	import pymysql</div><div class="line">	conn = pymysql.connect(</div><div class="line">	    host='127.0.0.1',</div><div class="line">	    user='root',</div><div class="line">	    passwd='root',</div><div class="line">	    db='db',</div><div class="line">	    charset='utf8'</div><div class="line">	)</div><div class="line">	cursor=conn.cursor()</div><div class="line">	</div><div class="line">	sql_insert = "insert into users(id,email,password) value(6,'xc@163.com','xc123456')"</div><div class="line">	sql_update = "update users set email='xccc@163.com' where email='xc@163.com'"</div><div class="line">	sql_delete = "delete from users  where d&lt;3"</div><div class="line">	try:</div><div class="line">	    # 执行语句</div><div class="line">	    cursor.execute(sql_insert)</div><div class="line">	    print cursor.rowcount</div><div class="line">	    cursor.execute(sql_update)</div><div class="line">	    print cursor.rowcount</div><div class="line">	    cursor.execute(sql_delete)</div><div class="line">	    print cursor.rowcount</div><div class="line">	    # 提交语句</div><div class="line">	    conn.commit()</div><div class="line">	except Exception as e:</div><div class="line">	    print e</div><div class="line">	    # 回滚</div><div class="line">	    conn.rollback()</div><div class="line">	cursor.close()</div><div class="line">	conn.close()</div><div class="line"></div><div class="line"></div><div class="line">开发数据库程序的流程</div><div class="line"></div><div class="line">1. 创建 connection 对象，获取 cursor</div><div class="line">2. 使用 cursor 执行 SQL 语句</div><div class="line">3. 使用 cursor 获取数据、判断执行状态</div><div class="line">4. 提交事务或者回滚事务</div><div class="line">5. 关闭 cursor 、关闭 connection</div><div class="line"></div><div class="line">事务：访问和更新数据库的一个程序执行单元</div><div class="line"></div><div class="line">- 原子性：事务中包括的诸操作要么都做，要么都不做</div><div class="line">- 一致性：事务必须使数据库从一致性状态转变到另一个一致性状态</div><div class="line">- 隔离性：一个事务的执行不能被其他事务干扰</div><div class="line">- 持久性：事务一旦提交，它对数据库的改变就是永久的</div><div class="line"></div><div class="line">开发中怎么使用事务？</div><div class="line"></div><div class="line">- 关闭自动 commit ：设置 conn.autocommit(false)</div><div class="line">- 正常结束事务： conn.commit()</div><div class="line">- 异常结束事务： conn.rollback()</div><div class="line"></div><div class="line">银行转账实例：</div><div class="line"></div><div class="line">开始事务-&gt;检查账号 A 和账户 B 是否可用-&gt;检查账户 A 是否有 100 元</div><div class="line">-&gt;账户 A 减去 100 元账户 B 加上 100 -&gt; 提交事务/如果出现异常则回滚事务</div><div class="line"></div><div class="line">银行转账实例编码实现</div><div class="line"></div><div class="line">	```py</div><div class="line">	# -*- coding: UTF-8 -*-</div><div class="line">	import sys</div><div class="line">	import pymysql</div><div class="line">	# 转账类</div><div class="line">	class TransferMoney(object):</div><div class="line">	    def __init__(self,conn):</div><div class="line">	        self.conn=conn</div><div class="line">	    # 检查账号是否可用</div><div class="line">	    def check_acctavailable(self,acctid):</div><div class="line">	        cursor = self.conn.cursor()</div><div class="line">	        try:</div><div class="line">	            sql = "select * from account where acctid=%s"%acctid</div><div class="line">	            print "check_acctavailable："+sql</div><div class="line">	            cursor.execute(sql)</div><div class="line">	            rs=cursor.fetchall()</div><div class="line">	            if len(rs)!=1:</div><div class="line">	                raise Exception("账号%s不存在"%acctid)</div><div class="line">	        finally:</div><div class="line">	            cursor.close()</div><div class="line">	    # 检查账号余额</div><div class="line">	    def has_enough_money(self,acctid,money):</div><div class="line">	        cursor = self.conn.cursor()</div><div class="line">	        try:</div><div class="line">	            sql = "select * from account where acctid=%s and money&gt;%s" % (acctid,money)</div><div class="line">	            print "has_enough_money：" + sql</div><div class="line">	            cursor.execute(sql)</div><div class="line">	            rs = cursor.fetchall()</div><div class="line">	            if len(rs) != 1:</div><div class="line">	                raise Exception("账号%s余额不足" % acctid)</div><div class="line">	        finally:</div><div class="line">	            cursor.close()</div><div class="line">	    # 减款操作</div><div class="line">	    def reduce_money(self,acctid,money):</div><div class="line">	        cursor = self.conn.cursor()</div><div class="line">	        try:</div><div class="line">	            sql = "update account set money=money-%s where acctid=%s" % (money,acctid)</div><div class="line">	            print "reduce_money：" + sql</div><div class="line">	            cursor.execute(sql)</div><div class="line">	            if cursor.rowcount != 1:</div><div class="line">	                raise Exception("账号%s减款失败" % acctid)</div><div class="line">	        finally:</div><div class="line">	            cursor.close()</div><div class="line">	    # 加款操作</div><div class="line">	    def add_money(self,acctid,money):</div><div class="line">	        cursor = self.conn.cursor()</div><div class="line">	        try:</div><div class="line">	            sql = "update account set money=money+%s where acctid=%s" % (money, acctid)</div><div class="line">	            print "add_money：" + sql</div><div class="line">	            cursor.execute(sql)</div><div class="line">	            if cursor.rowcount != 1:</div><div class="line">	                raise Exception("账号%s加款失败" % acctid)</div><div class="line">	        finally:</div><div class="line">	            cursor.close()</div><div class="line">	    # 转账</div><div class="line">	    def transfer(self,source_acctid,target_acctid,money):</div><div class="line">	        try:</div><div class="line">	            self.check_acctavailable(source_acctid)</div><div class="line">	            self.check_acctavailable(target_acctid)</div><div class="line">	            self.has_enough_money(source_acctid,money)</div><div class="line">	            self.reduce_money(source_acctid,money)</div><div class="line">	            self.add_money(target_acctid,money)</div><div class="line">	            conn.commit()</div><div class="line">	        except Exception as e:</div><div class="line">	            self.conn.rollback()</div><div class="line">	            raise e</div><div class="line">	</div><div class="line">	if __name__=="__main__":</div><div class="line">	    source_acctid = 3</div><div class="line">	    target_acctid = 2</div><div class="line">	    money = 1000</div><div class="line">	    conn = pymysql.connect(host='127.0.0.1',user='root',passwd='root',</div><div class="line">	                           db='db',charset='utf8'</div><div class="line">	                           )</div><div class="line">	    tr_money = TransferMoney(conn)</div><div class="line">	    try:</div><div class="line">	        tr_money.transfer(source_acctid,target_acctid,money)</div><div class="line">	    except Exception as e:</div><div class="line">	        print "出现问题："+str(e)</div><div class="line">	    finally:</div><div class="line">	        conn.close()</div></pre></td></tr></table></figure>
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/14/javascript实现二叉树/" class="archive-article-date">
-  	<time datetime="2017-09-14T02:15:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/14/javascript实现二叉树/">javascript实现二叉树</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/12/数据结构之图1/" class="archive-article-date">
-  	<time datetime="2017-09-12T02:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/12/数据结构之图1/">数据结构之图1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xaguo.github.io/2017/09/26/Python操作MySQL/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/10/数据结构之图/" class="archive-article-date">
-  	<time datetime="2017-09-10T11:32:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/10/数据结构之图/">数据结构之图</a>
-    </h1>
+  
+    <a href="/2017/09/21/JDBC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JDBC</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Python操作MySQL" data-title="Python操作MySQL" data-url="http://xaguo.github.io/2017/09/26/Python操作MySQL/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://xaguo.github.io/2017/09/26/Python操作MySQL/", 
+    sourceId: "Python操作MySQL",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/10/数据结构之树/" class="archive-article-date">
-  	<time datetime="2017-09-10T01:32:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/10/数据结构之树/">数据结构之树</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/07/数据结构之线性表/" class="archive-article-date">
-  	<time datetime="2017-09-07T08:50:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/07/数据结构之线性表/">数据结构之线性表</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
+</span>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/05/数据结构之栈/" class="archive-article-date">
-  	<time datetime="2017-09-05T10:28:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/05/数据结构之栈/">数据结构之栈</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/05/数据结构之队列/" class="archive-article-date">
-  	<time datetime="2017-09-05T04:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/05/数据结构之队列/">数据结构之队列</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -483,9 +350,9 @@ Website of <a href="https://xaguo.github.io" target="_blank">Xa</a>
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
