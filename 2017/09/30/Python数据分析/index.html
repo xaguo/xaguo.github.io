@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xaguo.github.io">
-  <title>Archives: 2017 | XA&#39;s blog</title>
+  <title>Python数据分析 | XA&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ѧϰ������">
-<meta property="og:type" content="website">
-<meta property="og:title" content="XA&#39;s blog">
-<meta property="og:url" content="http://xaguo.github.io/archives/2017/index.html">
+  <meta name="description" content="使用Python进行数据分析的基本模块。介绍的模块主要为六个：numpy、scipy、matplotlib、pandas、scikit-learn、keras。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python数据分析">
+<meta property="og:url" content="http://xaguo.github.io/2017/09/30/Python数据分析/index.html">
 <meta property="og:site_name" content="XA&#39;s blog">
-<meta property="og:description" content="ѧϰ������">
+<meta property="og:description" content="使用Python进行数据分析的基本模块。介绍的模块主要为六个：numpy、scipy、matplotlib、pandas、scikit-learn、keras。">
+<meta property="og:image" content="http://xaguo.github.io/2017/09/30/Python数据分析/fig.png">
+<meta property="og:image" content="http://xaguo.github.io/2017/09/30/Python数据分析/fig1.png">
+<meta property="og:updated_time" content="2017-09-30T16:19:13.903Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XA&#39;s blog">
-<meta name="twitter:description" content="ѧϰ������">
+<meta name="twitter:title" content="Python数据分析">
+<meta name="twitter:description" content="使用Python进行数据分析的基本模块。介绍的模块主要为六个：numpy、scipy、matplotlib、pandas、scikit-learn、keras。">
+<meta name="twitter:image" content="http://xaguo.github.io/2017/09/30/Python数据分析/fig.png">
   
     <link rel="alternative" href="/atom.xml" title="XA&#39;s blog" type="application/atom+xml">
   
@@ -149,36 +154,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Python数据分析" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Python数据分析
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/30/Python数据分析/" class="archive-article-date">
+
+        
+        <a href="/2017/09/30/Python数据分析/" class="archive-article-date">
   	<time datetime="2017-09-30T11:10:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-30</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/30/Python数据分析/">Python数据分析</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用Python进行数据分析的基本模块。介绍的模块主要为六个：numpy、scipy、matplotlib、pandas、scikit-learn、keras。</p>
+<a id="more"></a>
+<p>Python 特点：简洁，开发效率高，运算速度快，胶水特性。</p>
+<p>数据分析：numpy、scipy、matplotlib、pandas,scikit-learn、keras…</p>
+<p>numpy:数据结构基础</p>
+<p>scipy:强大的科学计算方法(矩阵分析、信号分析、数理分析…)</p>
+<p>matplotlib:丰富的可视化套件</p>
+<p>pandas:基础数据分析套件</p>
+<p>scikit-learn:强大的数据分析建模库（数据分析）</p>
+<p>keras:人工神经网络</p>
+<p><a href="https://www.anaconda.com/download/#windows" target="_blank" rel="external">anaconda</a></p>
+<h2 id="numpy"><a href="#numpy" class="headerlink" title="numpy"></a>numpy</h2><p>开源 数据计算扩展</p>
+<p>功能： ndarray 多维操作 线性代数</p>
+<p><a href="http://www.numpy.org/" target="_blank" rel="external">numpy 官网</a></p>
+<p>numpyTest</p>
+<pre><code><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    lst=[[<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>],[<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>]]</div><div class="line">    <span class="keyword">print</span> (type(lst))</div><div class="line">    <span class="comment"># 1 numpy.array</span></div><div class="line">    np_lst=np.array(lst)</div><div class="line">    print(type(np_lst))</div><div class="line">    <span class="comment"># 设置 numpy.array 的数据类型</span></div><div class="line">    <span class="comment"># bool,int,int8/16/32/64/128/,uint,uint8/16/32/64/128,float,float16/32/64/128</span></div><div class="line">    np_lst=np.array(lst,dtype=np.float)</div><div class="line">    <span class="comment"># 设置 np.arra/y 的属性</span></div><div class="line">    print(np_lst.shape)<span class="comment">#形状(行列)</span></div><div class="line">    print(np_lst.ndim)<span class="comment">#维度</span></div><div class="line">    print(np_lst.dtype)<span class="comment">#数据类型</span></div><div class="line">    print(np_lst.itemsize)<span class="comment">#每个元素的大小</span></div><div class="line">    print(np_lst.size)<span class="comment">#元素个数</span></div><div class="line">    <span class="comment">#2 numpy 中常用的 array</span></div><div class="line">    print(np.zeros([<span class="number">2</span>,<span class="number">4</span>]))<span class="comment">#0 数组</span></div><div class="line">    print(np.ones([<span class="number">3</span>,<span class="number">5</span>]))<span class="comment">#1 数组</span></div><div class="line">    print(<span class="string">"rand:"</span>)</div><div class="line">    print(np.random.rand(<span class="number">2</span>,<span class="number">4</span>))<span class="comment">#两行四列随机数</span></div><div class="line">    print(np.random.rand())<span class="comment">#一个机数</span></div><div class="line">    print(<span class="string">"randInt:"</span>)</div><div class="line">    print(np.random.randint(<span class="number">1</span>,<span class="number">10</span>))<span class="comment">#打印随机整数</span></div><div class="line">    print(np.random.randint(<span class="number">1</span>,<span class="number">10</span>,<span class="number">3</span>))<span class="comment">#打印 3 个随机整数</span></div><div class="line">    print(<span class="string">"randn:"</span>)</div><div class="line">    print(np.random.randn())<span class="comment">#打印正态分布随机</span></div><div class="line">    print(np.random.randn(<span class="number">2</span>,<span class="number">4</span>))<span class="comment">#打印 2 行 4 列正态分布随机</span></div><div class="line">    print(<span class="string">"Choice:"</span>)</div><div class="line">    print(np.random.choice([<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>]))<span class="comment">#给定数的随机</span></div><div class="line">    print(<span class="string">"Distribute:"</span>)</div><div class="line">    print(np.random.beta(<span class="number">1</span>,<span class="number">10</span>,<span class="number">100</span>))<span class="comment">#beta 分布</span></div><div class="line">    <span class="comment"># 3 numpy 中常用操作</span></div><div class="line">    print(np.arange(<span class="number">1</span>,<span class="number">11</span>).reshape([<span class="number">2</span>,<span class="number">5</span>]))</div><div class="line">    print(np.arange(<span class="number">1</span>,<span class="number">11</span>).reshape([<span class="number">2</span>,<span class="number">-1</span>]))</div><div class="line">    lst=np.arange(<span class="number">1</span>,<span class="number">11</span>).reshape([<span class="number">2</span>,<span class="number">-1</span>])</div><div class="line">    print(<span class="string">"exp:"</span>)</div><div class="line">    print(np.exp(lst))<span class="comment">#自然指数</span></div><div class="line">    print(<span class="string">"exp2:"</span>)</div><div class="line">    print(np.exp2(lst))<span class="comment">#自然指数的平方</span></div><div class="line">    print(<span class="string">"sqrt:"</span>)</div><div class="line">    print(np.sqrt(lst))<span class="comment">#开平方</span></div><div class="line">    print(<span class="string">"sin:"</span>)</div><div class="line">    print(np.sin(lst))<span class="comment">#三角函数</span></div><div class="line">    print(<span class="string">"log:"</span>)</div><div class="line">    print(np.log(lst))<span class="comment">#对数</span></div><div class="line"></div><div class="line">    lst=np.array([</div><div class="line">      [</div><div class="line">          [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],</div><div class="line">          [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</div><div class="line">      ],</div><div class="line">      [</div><div class="line">          [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>],</div><div class="line">          [<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>]</div><div class="line">      ],</div><div class="line">      [</div><div class="line">          [<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>],</div><div class="line">          [<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>]</div><div class="line">      ]</div><div class="line">    ])</div><div class="line">    print(<span class="string">"sum():"</span>)</div><div class="line">    print(lst.sum())</div><div class="line">    print(<span class="string">"sum(axis=0):"</span>)</div><div class="line">    print(lst.sum(axis=<span class="number">0</span>))</div><div class="line">    print(<span class="string">"sum(axis=1):"</span>)</div><div class="line">    print(lst.sum(axis=<span class="number">1</span>))</div><div class="line">    print(<span class="string">"sum(axis=2):"</span>)</div><div class="line">    print(lst.sum(axis=<span class="number">2</span>))</div><div class="line">    print(<span class="string">"max(axis=1):"</span>)</div><div class="line">    print(lst.max(axis=<span class="number">1</span>))</div><div class="line">    print(<span class="string">"min(axis=0):"</span>)</div><div class="line">    print(lst.min(axis=<span class="number">0</span>))</div><div class="line"></div><div class="line">    lst1=np.array([<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>])</div><div class="line">    lst2=np.array([<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>])</div><div class="line">    print(<span class="string">"add:"</span>)</div><div class="line">    print(lst1+lst2)</div><div class="line">    print(<span class="string">"sub:"</span>)</div><div class="line">    print(lst1-lst2)</div><div class="line">    print(<span class="string">"mul:"</span>)</div><div class="line">    print(lst1*lst2)</div><div class="line">    print(<span class="string">"div:"</span>)</div><div class="line">    print(lst1/lst2)</div><div class="line">    print(<span class="string">"square:"</span>)</div><div class="line">    print(lst1**<span class="number">2</span>)</div><div class="line">    print(<span class="string">"dot:"</span>)</div><div class="line">    print(np.dot(lst1.reshape([<span class="number">2</span>,<span class="number">2</span>]),lst2.reshape([<span class="number">2</span>,<span class="number">2</span>])))</div><div class="line">    print(<span class="string">"concatenate:"</span>)</div><div class="line">    print(np.concatenate((lst1,lst2),axis=<span class="number">0</span>))</div><div class="line">    print(np.vstack((lst1,lst2)))</div><div class="line">    print(np.hstack((lst1,lst2)))</div><div class="line">    print(np.split(lst1,<span class="number">2</span>))</div><div class="line">    print(np.split(lst1,<span class="number">4</span>))</div><div class="line">    print(np.copy(lst1))</div><div class="line">    <span class="comment">#4 numpy 矩阵操作与线性方程组</span></div><div class="line">    <span class="keyword">from</span> numpy.linalg <span class="keyword">import</span> *</div><div class="line">    print(np.eye(<span class="number">3</span>))<span class="comment">#单位矩阵</span></div><div class="line">    lst=np.array([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]])</div><div class="line">    print(<span class="string">"inv:"</span>)</div><div class="line">    print(inv(lst))<span class="comment">#矩阵逆</span></div><div class="line">    print(<span class="string">"T:"</span>)</div><div class="line">    print(lst.transpose())<span class="comment">#矩阵反置</span></div><div class="line">    print(<span class="string">"det:"</span>)</div><div class="line">    print(det(lst))<span class="comment">#矩阵行列式</span></div><div class="line">    print(<span class="string">"eig:"</span>)</div><div class="line">    print(eig(lst))<span class="comment">#矩阵特征值特征向量</span></div><div class="line">    lst = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]])</div><div class="line">    y=np.array([[<span class="number">5</span>,],[<span class="number">7</span>,]])</div><div class="line">    print(<span class="string">"solve:"</span>)</div><div class="line">    print(solve(lst,y))<span class="comment">#解线性方程组</span></div><div class="line">    <span class="comment">#numpy 其它应用简介</span></div><div class="line">    print(<span class="string">"FFT:"</span>)</div><div class="line">    print(np.fft.fft(np.array([<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>])))</div><div class="line">    print(<span class="string">"Coef:"</span>)</div><div class="line">    print(np.corrcoef([<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">2</span>,<span class="number">1</span>]))</div><div class="line">    print(<span class="string">"Poly:"</span>)</div><div class="line">    print(np.poly1d([<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>]))</div><div class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</div><div class="line">    main()</div></pre></td></tr></table></figure>
+</code></pre><h2 id="maplotlib"><a href="#maplotlib" class="headerlink" title="maplotlib"></a>maplotlib</h2><p>绘图库</p>
+<p><a href="http://matplotlib.org/api/pyplot_api.html" target="_blank" rel="external">maplotlib 官网</a></p>
+<p>折线图</p>
+<pre><code><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment">#line</span></div><div class="line">    x = np.linspace(-np.pi,np.pi,<span class="number">256</span>,endpoint=<span class="keyword">True</span>)</div><div class="line">    c,s=np.cos(x),np.sin(x)<span class="comment">#余弦,正弦</span></div><div class="line">    plt.figure(<span class="number">1</span>)</div><div class="line">    plt.plot(x, c,color=<span class="string">"blue"</span>,linewidth=<span class="string">"1.0"</span>,linestyle=<span class="string">"-"</span>,label=<span class="string">"COS"</span>,alpha=<span class="number">0.2</span>)</div><div class="line">    plt.plot(x, s,<span class="string">"r*"</span>,label=<span class="string">"SIN"</span>)</div><div class="line">    plt.title(<span class="string">"COS &amp; SIN"</span>)<span class="comment">#设置标题</span></div><div class="line">    ax=plt.gca()</div><div class="line">    ax.spines[<span class="string">"right"</span>].set_color(<span class="string">"none"</span>)</div><div class="line">    ax.spines[<span class="string">"top"</span>].set_color(<span class="string">"none"</span>)</div><div class="line">    ax.spines[<span class="string">"left"</span>].set_position((<span class="string">"data"</span>,<span class="number">0</span>))</div><div class="line">    ax.spines[<span class="string">"bottom"</span>].set_position((<span class="string">"data"</span>,<span class="number">0</span>))</div><div class="line">    <span class="comment">#设置显示位置</span></div><div class="line">    ax.xaxis.set_ticks_position(<span class="string">"bottom"</span>)</div><div class="line">    ax.yaxis.set_ticks_position(<span class="string">"left"</span>)</div><div class="line">    <span class="comment">#设置显示间隔</span></div><div class="line">    plt.xticks([-np.pi,-np.pi/<span class="number">2</span>,<span class="number">0</span>,np.pi/<span class="number">2</span>,np.pi],</div><div class="line">    [<span class="string">r'$-\pi$'</span>,<span class="string">r'$-\pi/2$'</span>,<span class="string">r'$0$'</span>,<span class="string">r'$+\pi/2$'</span>,<span class="string">r'$+\pi$'</span>])</div><div class="line">    plt.yticks(np.linspace(<span class="number">-1</span>,<span class="number">1</span>,<span class="number">5</span>,endpoint=<span class="keyword">True</span>))</div><div class="line">    <span class="comment">#设置显示字体大小</span></div><div class="line">    <span class="keyword">for</span> label <span class="keyword">in</span> ax.get_xticklabels()+ax.get_yticklabels():</div><div class="line">        label.set_fontsize(<span class="number">16</span>)</div><div class="line">        label.set_bbox(dict(facecolor=<span class="string">"white"</span>,edgecolor=<span class="string">"None"</span>,alpha=<span class="number">0.2</span>))</div><div class="line">    plt.legend(loc=<span class="string">"upper left"</span>)<span class="comment">#设置图例</span></div><div class="line">    plt.grid()<span class="comment">#设置网格线</span></div><div class="line">    <span class="comment">#plt.axis([-1,1,-0.5,1])#指定显示范围</span></div><div class="line">    plt.fill_between(x,np.abs(x)&lt;<span class="number">0.5</span>,c,c&gt;<span class="number">0.5</span>,color=<span class="string">"green"</span>,alpha=<span class="number">0.5</span>)</div><div class="line">    <span class="comment">#加注释</span></div><div class="line">    t=<span class="number">1</span></div><div class="line">    plt.plot([t,t],[<span class="number">0</span>,np.cos(t)],<span class="string">"y"</span>,linewidth=<span class="number">3</span>,linestyle=<span class="string">"--"</span>)</div><div class="line">    plt.annotate(<span class="string">"cos(1)"</span>, xy=(t, np.cos(<span class="number">1</span>)), xycoords=<span class="string">"data"</span>, xytext=(+<span class="number">10</span>, +<span class="number">30</span>),</div><div class="line">                 textcoords=<span class="string">"offset points"</span>, arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc3,rad=.2"</span>))</div><div class="line">    plt.savefig(<span class="string">"./data/fig.png"</span>)  <span class="comment"># 保存图片</span></div><div class="line">    plt.show()</div><div class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</div><div class="line">    main()</div></pre></td></tr></table></figure>
+</code></pre><p>输出</p>
+<p><img src="/2017/09/30/Python数据分析/fig.png" alt="maplotlib 折线图"></p>
+<p>子图与其他图形的绘制</p>
+<pre><code><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment">#scatter</span></div><div class="line">    fig=plt.figure()</div><div class="line">    ax=fig.add_subplot(<span class="number">3</span>,<span class="number">3</span>,<span class="number">1</span>)</div><div class="line">    n=<span class="number">128</span></div><div class="line">    X=np.random.normal(<span class="number">0</span>,<span class="number">1</span>,n)</div><div class="line">    Y=np.random.normal(<span class="number">0</span>,<span class="number">1</span>,n)</div><div class="line">    T=np.arctan2(Y,X)</div><div class="line">    <span class="comment"># plt.axes([0.025,0.025,0.95,0.95])</span></div><div class="line">    ax.scatter(X,Y,s=<span class="number">0.75</span>,c=T,alpha=<span class="number">1</span>)</div><div class="line">    plt.xlim(<span class="number">-1.5</span>,<span class="number">1.5</span>),plt.xticks([])</div><div class="line">    plt.ylim(<span class="number">-1.5</span>,<span class="number">1.5</span>),plt.yticks([])</div><div class="line">    plt.axis()</div><div class="line">    plt.title(<span class="string">"scatter"</span>)</div><div class="line">    plt.xlabel(<span class="string">"x"</span>)</div><div class="line">    plt.ylabel(<span class="string">"y"</span>)</div><div class="line">    <span class="comment">#bar</span></div><div class="line">    fig.add_subplot(<span class="number">332</span>)</div><div class="line">    n=<span class="number">5</span></div><div class="line">    X=np.arange(n)</div><div class="line">    Y1=(<span class="number">1</span>-X/float(n)*np.random.uniform(<span class="number">0.5</span>,<span class="number">1.0</span>,n))</div><div class="line">    Y2=(<span class="number">1</span>-X/float(n)*np.random.uniform(<span class="number">0.5</span>,<span class="number">1.0</span>,n))</div><div class="line">    plt.bar(X,+Y1,facecolor=<span class="string">"#9999ff"</span>,edgecolor=<span class="string">"white"</span>)</div><div class="line">    plt.bar(X,-Y1,facecolor=<span class="string">"#ff9999"</span>,edgecolor=<span class="string">"white"</span>)</div><div class="line">    <span class="keyword">for</span> x,y <span class="keyword">in</span> zip(X,Y1):</div><div class="line">        plt.text(x+<span class="number">0.4</span>,y+<span class="number">0.05</span>,<span class="string">'%.2f'</span>%y,ha=<span class="string">'center'</span>,va=<span class="string">'bottom'</span>)</div><div class="line">    <span class="keyword">for</span> x, y <span class="keyword">in</span> zip(X, Y2):</div><div class="line">        plt.text(x+<span class="number">0.4</span>,-y<span class="number">-0.05</span>,<span class="string">'%.2f'</span>%y,ha=<span class="string">'center'</span>,va=<span class="string">'top'</span>)</div><div class="line">    <span class="comment">#pie</span></div><div class="line">    fig.add_subplot(<span class="number">333</span>)</div><div class="line">    n=<span class="number">15</span></div><div class="line">    Z=np.ones(n)</div><div class="line">    Z[<span class="number">-1</span>]*=<span class="number">2</span></div><div class="line">    plt.pie(Z,explode=Z*<span class="number">.05</span>,colors=[<span class="string">'%f'</span>%(i/float(n))<span class="keyword">for</span> i <span class="keyword">in</span> range(n)],</div><div class="line">            labels=[<span class="string">'%.2f'</span>%(i/float(n)) <span class="keyword">for</span> i <span class="keyword">in</span> range(n)])</div><div class="line">    plt.gca().set_aspect(<span class="string">'equal'</span>)</div><div class="line">    plt.xticks([]),plt.yticks([])</div><div class="line">    <span class="comment">#polar</span></div><div class="line">    fig.add_subplot(<span class="number">334</span>)</div><div class="line">    n=<span class="number">20</span></div><div class="line">    theta=np.arange(<span class="number">0.0</span>,<span class="number">2</span>*np.pi,<span class="number">2</span>*np.pi/n)</div><div class="line">    radii=<span class="number">10</span>*np.random.rand(n)</div><div class="line">    plt.plot(theta,radii)</div><div class="line">    fig.add_subplot(<span class="number">338</span>,polar=<span class="keyword">True</span>)</div><div class="line">    n = <span class="number">20</span></div><div class="line">    theta = np.arange(<span class="number">0.0</span>, <span class="number">2</span> * np.pi, <span class="number">2</span> * np.pi / n)</div><div class="line">    radii = <span class="number">10</span> * np.random.rand(n)</div><div class="line">    <span class="comment"># plt.plot(theta, radii)</span></div><div class="line">    plt.polar(theta,radii)</div><div class="line">    <span class="comment">#heatmap</span></div><div class="line">    fig.add_subplot(<span class="number">336</span>)</div><div class="line">    <span class="keyword">from</span> matplotlib <span class="keyword">import</span> cm</div><div class="line">    data=np.random.rand(<span class="number">3</span>,<span class="number">3</span>)</div><div class="line">    cmap=cm.Blues</div><div class="line">    map=plt.imshow(data,interpolation=<span class="string">'nearest'</span>,cmap=cmap,aspect=<span class="string">'auto'</span>,vmin=<span class="number">0</span>,vmax=<span class="number">1</span>)</div><div class="line">    <span class="comment">#3D</span></div><div class="line">    <span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</div><div class="line">    ax=fig.add_subplot(<span class="number">337</span>,projection=<span class="string">"3d"</span>)</div><div class="line">    ax.scatter(<span class="number">1</span>,<span class="number">1</span>,<span class="number">3</span>,s=<span class="number">100</span>)</div><div class="line">    <span class="comment">#hot map</span></div><div class="line">    fig.add_subplot(<span class="number">339</span>)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x,y)</span>:</span></div><div class="line">        <span class="keyword">return</span> (<span class="number">1</span>-x/<span class="number">2</span>+x**<span class="number">5</span>+y**<span class="number">3</span>)*np.exp(-x**<span class="number">2</span>-y**<span class="number">2</span>)</div><div class="line">    n=<span class="number">256</span></div><div class="line">    x=np.linspace(<span class="number">-3</span>,<span class="number">3</span>,n)</div><div class="line">    y=np.linspace(<span class="number">-3</span>,<span class="number">3</span>,n)</div><div class="line">    X,Y=np.meshgrid(x,y)</div><div class="line">    plt.contourf(X,Y,f(X,Y),<span class="number">8</span>,alpha=<span class="number">.75</span>,cmap=plt.cm.hot)</div><div class="line">    plt.savefig(<span class="string">"./data/fig1.png"</span>)<span class="comment">#保存图片</span></div><div class="line">    plt.show()</div><div class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</div><div class="line">    main()</div></pre></td></tr></table></figure>
+</code></pre><p>输出</p>
+<p><img src="/2017/09/30/Python数据分析/fig1.png" alt="maplotlib 折线图"></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -190,397 +219,123 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xaguo.github.io/2017/09/30/Python数据分析/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/26/Python操作MySQL/" class="archive-article-date">
-  	<time datetime="2017-09-26T04:07:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-26</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/26/Python操作MySQL/">Python操作MySQL</a>
-    </h1>
+  
+    <a href="/2017/09/26/Python操作MySQL/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python操作MySQL</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Python数据分析" data-title="Python数据分析" data-url="http://xaguo.github.io/2017/09/30/Python数据分析/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://xaguo.github.io/2017/09/30/Python数据分析/", 
+    sourceId: "Python数据分析",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/21/JDBC/" class="archive-article-date">
-  	<time datetime="2017-09-21T15:31:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/21/JDBC/">JDBC</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/14/javascript实现二叉树/" class="archive-article-date">
-  	<time datetime="2017-09-14T02:15:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/14/javascript实现二叉树/">javascript实现二叉树</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
+</span>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/12/数据结构之图1/" class="archive-article-date">
-  	<time datetime="2017-09-12T02:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/12/数据结构之图1/">数据结构之图1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/10/数据结构之图/" class="archive-article-date">
-  	<time datetime="2017-09-10T11:32:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/10/数据结构之图/">数据结构之图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/10/数据结构之树/" class="archive-article-date">
-  	<time datetime="2017-09-10T01:32:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/10/数据结构之树/">数据结构之树</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/07/数据结构之线性表/" class="archive-article-date">
-  	<time datetime="2017-09-07T08:50:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/07/数据结构之线性表/">数据结构之线性表</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/05/数据结构之栈/" class="archive-article-date">
-  	<time datetime="2017-09-05T10:28:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/05/数据结构之栈/">数据结构之栈</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/05/数据结构之队列/" class="archive-article-date">
-  	<time datetime="2017-09-05T04:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/05/数据结构之队列/">数据结构之队列</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -609,8 +364,8 @@ Website of <a href="https://xaguo.github.io" target="_blank">Xa</a>
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
