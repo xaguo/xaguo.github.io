@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://xaguo.github.io/2017/10/14/JaveScript学习笔记/index.html">
 <meta property="og:site_name" content="XA&#39;s blog">
 <meta property="og:description" content="javascript 学习笔记。参考书 : JavaScript 权威指南。参考资料">
-<meta property="og:updated_time" content="2017-10-20T06:15:23.902Z">
+<meta property="og:updated_time" content="2017-10-20T06:21:44.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JaveScript学习笔记">
 <meta name="twitter:description" content="javascript 学习笔记。参考书 : JavaScript 权威指南。参考资料">
@@ -807,31 +807,31 @@ window.ohNo;//1
 delete ohNo;//true
 </code></pre><p>检测属性</p>
 <pre><code>var cat = new Object();
- cat.legs = 4;
- cat.name = &apos;Kitty&apos;;
- &apos;legs&apos; in cat;//true
- &apos;abc&apos; in cat;//false
- //原型链上的属性
- &apos;toString&apos; in cat;//true,inherited property!!!
- //检测对象上是否具有属性
- cat.hasOwnProperty(&apos;legs&apos;);//true
- cat.hasOwnProperty(&apos;toString&apos;);//false
- //检测属性是否可以枚举，原型链上的属性 Enumerable 一般为 false
- cat.propertyIsEnumerable(&apos;legs&apos;);//true
- cat.propertyIsEnumerable(&apos;toString&apos;);//false
- //自定义属性的 Enumerable 
- Object.defineProperty(cat,&apos;price&apos;,{enumerable:false,value:1000});
- cat.propertyIsEnumerable(&apos;price&apos;);//false
- cat.hasOwnProperty(&apos;price&apos;);//true
- if(cat&amp;&amp;cat.legs){
- cat.legs*=2;
- }
- if(cat.legs!=undefined){
- //!==undefined,or,!==null
- }
- if(cat.legs!==undefined){
- //only if cat.legs is not undefined
- }
+cat.legs = 4;
+cat.name = &apos;Kitty&apos;;
+&apos;legs&apos; in cat;//true
+&apos;abc&apos; in cat;//false
+//原型链上的属性
+&apos;toString&apos; in cat;//true,inherited property!!!
+//检测对象上是否具有属性
+cat.hasOwnProperty(&apos;legs&apos;);//true
+cat.hasOwnProperty(&apos;toString&apos;);//false
+//检测属性是否可以枚举，原型链上的属性 Enumerable 一般为 false
+cat.propertyIsEnumerable(&apos;legs&apos;);//true
+cat.propertyIsEnumerable(&apos;toString&apos;);//false
+//自定义属性的 Enumerable 
+Object.defineProperty(cat,&apos;price&apos;,{enumerable:false,value:1000});
+cat.propertyIsEnumerable(&apos;price&apos;);//false
+cat.hasOwnProperty(&apos;price&apos;);//true
+if(cat&amp;&amp;cat.legs){
+cat.legs*=2;
+}
+if(cat.legs!=undefined){
+//!==undefined,or,!==null
+}
+if(cat.legs!==undefined){
+//only if cat.legs is not undefined
+}
 </code></pre><p>属性枚举</p>
 <pre><code>var o = {x:1,y:2,z:3}
 &apos;toString&apos; in o;//true
@@ -1547,6 +1547,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -1556,10 +1560,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
