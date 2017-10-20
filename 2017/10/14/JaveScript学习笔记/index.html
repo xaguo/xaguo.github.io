@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://xaguo.github.io/2017/10/14/JaveScript学习笔记/index.html">
 <meta property="og:site_name" content="XA&#39;s blog">
 <meta property="og:description" content="javascript 学习笔记。参考书 : JavaScript 权威指南。参考资料">
-<meta property="og:updated_time" content="2017-10-14T15:50:39.136Z">
+<meta property="og:updated_time" content="2017-10-20T06:15:23.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JaveScript学习笔记">
 <meta name="twitter:description" content="javascript 学习笔记。参考书 : JavaScript 权威指南。参考资料">
@@ -172,8 +172,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>javascript 学习笔记。参考书 : JavaScript 权威指南。<a href="https://developer.mozilla.org/zh-CN/docs/learn/JavaScript" target="_blank" rel="external">参考资料</a><br><a id="more"></a></p>
-<p>##数据类型</p>
-<h3 id="6-种数据类型"><a href="#6-种数据类型" class="headerlink" title="6 种数据类型"></a>6 种数据类型</h3><pre><code>//弱类型
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="6-种数据类型"><a href="#6-种数据类型" class="headerlink" title="6 种数据类型"></a>6 种数据类型</h3><pre><code>//弱类型
 var num = 32;
 num = &quot;this is a number&quot;;
 
@@ -199,7 +198,7 @@ var x= 42 + &apos;is the answer &apos; ;
 <li><p>num + “”</p>
 <pre><code>37 + &quot;&quot;//-&gt;&quot;37&quot;
 </code></pre></li>
-<li><p>== 等于</p>
+<li><p>等于 ==</p>
 <pre><code>&quot;1.23&quot; == 1.23;//当一边是数字时，强制转成数字
 0 == false;
 null == undefined;
@@ -269,7 +268,10 @@ bosn instanceof Person//true
 <ul>
 <li>Object.prototype.toString</li>
 </ul>
-<p>Object.prototype.toString.apply([]);===”[object Array]”<br>Object.prototype.toString.apply(function(){});===”[object Function]”<br>Object.prototype.toString.apply(null);===”[object Null]”<br>Object.prototype.toString.apply(undefined);===”[object Undefined]”</p>
+<p>Object.prototype.toString.apply([]);===”[object Array]”</p>
+<p>Object.prototype.toString.apply(function(){});===”[object Function]”</p>
+<p>Object.prototype.toString.apply(null);===”[object Null]”</p>
+<p>Object.prototype.toString.apply(undefined);===”[object Undefined]”</p>
 <p>IE 6/7/8 Object.prototype.toString.apply(null)返回”[object Objecr]”</p>
 <ul>
 <li>constructor</li>
@@ -470,6 +472,844 @@ try{
   //&quot;inner&quot;&quot;oops&quot;
   //&quot;finally&quot;
   //&quot;outer&quot;&quot;oops&quot;
+</code></pre><ul>
+<li>函数、switch、循环</li>
+</ul>
+<p>function</p>
+<pre><code>fd();//true //函数声明会被前置处理，可以在前面调用
+//函数声明
+function fd(){
+    //do something
+    retirn true;
+}
+//函数表达式//函数表达式不能前置调用
+fe();//TypeError
+var fe = function(){
+    //do something
+};
+</code></pre><p>for…in</p>
+<pre><code>var p;
+var obj = {x:1,y:2}
+for (p in obj){
+}
+//for in 
+//1. 顺序不确定
+//2. enumerable 为 false 时不会出现，为 true 时会出现
+//3. for in 对象属性时受原型链影响
+</code></pre><p>switch</p>
+<pre><code>val=2;
+//====&gt;&lt;=====================
+switch(val){
+    case 1:
+        console.log(1);
+        break;
+    case 2:
+        console.log(2);
+        break;
+    default:
+        console.log(0);
+        break;
+}//---&gt;结果 2
+
+//====&gt;&lt;=====================
+switch(val){
+    case 1:
+        console.log(1)
+    case 2:
+        console.log(2);
+    dafault:
+        console(0);
+}//---&gt;结果 2 0
+
+//====&gt;&lt;=====================
+switch(val){
+case 1:
+case 2:
+case 3:
+    console.log(123);
+    break;
+case 4:
+case 5:
+    console.log(45)
+    break;
+dafault:
+    console.log(0);
+}---&gt; 输出123
+</code></pre><p>循环</p>
+<pre><code>while(isTrue){
+    //do something
+}
+do{
+    //do something
+}while(isTrue)
+var i;
+for(i=0;i&lt;n;i++){
+    //do something
+}
+</code></pre><p>with</p>
+<pre><code>//with 可以修改作用域，可以用 x 直接输出1，不需要用 obj.x
+with({x:1}){
+    console.log(x);
+}
+with(document.forms[0]){
+    console.log(name.value);//== 隐式调用 document.forms[0].name.value
+}
+// ||
+var form = document.forms[0];
+console.log(form.name.value);        
+//让 JS 引擎优化更难
+//可读性差
+//可被变量代替
+//严格模式下禁用
+</code></pre><h3 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h3><p>严格模式是一种特殊的执行模式，它修复了部分语言上的不足，提供更强的错误检查，并增强安全性。</p>
+<ul>
+<li><p>用法</p>
+<pre><code>function func(){
+    &apos;use struct&apos;;//这样可以兼容，不支持时被忽略
+}
+//
+&apos;use strict&apos;;
+function func(){
+}
+</code></pre></li>
+<li><p>严格模式不允许使用 with</p>
+<pre><code>!function(){
+    with({x:1}){
+        console.log(x);
+    }
+}();//一般情况，输出1
+!function(){
+‘use strict&apos;
+    with({x:1}){
+        console.log(x);
+    }
+}();//严格模式 SyntaxError
+</code></pre></li>
+<li><p>严格模式不允许未声明的变量被赋值</p>
+<pre><code>!function(){// ！表示函数表达式而不是函数声明
+    x=1;
+    console.log(window.x)
+}();//一般情况下，输出 1
+!function(){
+    &apos;use strict&apos;
+    x=1;
+    console.log(window.x)
+}();//严格模式下，报 ReferenceError
+</code></pre></li>
+<li><p>严格模式 arguments 变为参数的静态副本</p>
+<pre><code>!function(a){
+    arguments[0]=100;
+    console.log(a);
+}(1);//a 传入 1 ,输出 100// a不传 输出 undefined
+!function(a){
+    &apos;use strict&apos;;
+    arguments[0]=100;
+    console.log(a)
+}(1);//仍然输出 1
+!function(a){
+    &apos;use strict&apos;;
+    arguments[0].x=100;
+    console.log(a)
+}({x:1});//仍然输出 100[如果传入对象，修改对象属性，会相互影响]
+</code></pre></li>
+<li><p>严格模式 删除参数、函数名报错</p>
+<pre><code>!function(a){
+    console.log(delete a);
+}(1);//删除失败，返回 false ,输出 false
+!function(a){
+    &apos;use strict&apos;;
+    console.log(delete a);
+}(1);//严格模式下，报 SyntaxError
+</code></pre></li>
+<li><p>严格模式 delete 不可配置的属性报错</p>
+<pre><code>!function(a){
+    var obj = {};
+    Object.defineProperty(obj,&apos;a&apos;,{configurable:false});
+    console.log(delete obj.a);
+}(1);//删除失败，返回 false，输出 false
+!function(a){
+    &apos;use strict&apos;;
+    var obj = {};
+    Object.defineProperty(obj,&apos;a&apos;,{configurable:false});
+    delete obj.a;
+}(1);//报错 TypeError
+</code></pre></li>
+<li><p>严格模式 对象字面量重复属性名报错</p>
+<pre><code>!function(){
+    var obj = {x:1,x:2};//同名以最后一个为准
+    console.log(obj.x);
+}();//一般情况下 输出1
+!function(){
+    &apos;use strict&apos;;
+    var obj = {x:1,x:2};
+    console.log(obj.x);
+}();//严格模式 报错 SyntaxError
+</code></pre></li>
+<li><p>严格模式 禁止八进制字面量</p>
+<pre><code>!function(){
+    console.log(0123);
+}();//一般情况 83
+!function(){
+    &apos;use strict&apos;;
+    console.log(0123);
+}();//严格模式，报错 SyntaxError
+</code></pre></li>
+<li><p>严格模式 eval,arguments 变为关键字，不能作为变量、函数名</p>
+<pre><code>!function(){
+    function eval(){}
+    console.log(eval);
+}();//一般情况，输出 function eval(){}
+!function(){
+    &apos;use strict&apos;;
+    function eval(){}
+    console.log(eval);
+}();//严格模式，报错 SyntaxError
+</code></pre></li>
+<li><p>严格模式 eval 变为独立作用域</p>
+<pre><code>!function(){
+    eval(&apos;var evalVal = 2&apos;);
+    console.log(typeof evalVal);
+}();//一般情况下 eval 所在的函数可以拿到evalVal ，输出 number
+!function(){
+    &apos;use strict&apos;
+    eval(&apos;var evalVal = 2&apos;);
+    console.log(typeof evalVal);
+}();//严格模式  eval 所在的函数拿不到 evalVal，输出 undefined
+</code></pre><p>严格模式下</p>
+</li>
+<li><p>一般函数调用时(不是对象的方法调用，也不使用 apply/call/bind 等修改 this) this 指向 null,而不是全局变量</p>
+</li>
+<li>若使用 apply/call，传入 null 或 undefined 时，this 将指向 null 或 undefined,而不是全局变量</li>
+<li>试图修改不可写属性(weitable = false),在不可扩展的对象上添加属性时报错 TypeError,而不是忽略。</li>
+<li>arguments.caller,argument.callee 被禁用</li>
+</ul>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>对象中包含一系列属性，这些属性是无序的。每个属性都有一个字符串 key 和对应的 value。</p>
+<pre><code>var obj = {x:1,y:2};
+obj.x;//1
+obj.y;//2
+</code></pre><p>对象的key</p>
+<pre><code>var obj = {};
+obj[1]=1;
+obj[&apos;1&apos;]=2;
+obj;//Object{1:2}
+
+obj[{}]=true;
+obj[{x:1}]=true;
+obj;//Object{1:2,[object Object]:true}
+
+//对象的属性可以动态的创建或删除
+var obj = {};
+obj.y = 2;
+obj.x = 1;
+//属性的标签：writable\enumerable\configurable\value\get/set
+//对象的原型 [[proto]]
+function foo(){}
+foo.prototype.z = 3;
+var obj = new foo();
+//对象标签[[class]] 表示对象属于哪一个种类的
+//对象标签[[extensible]] 表示对象是否允许增加新的属性
+</code></pre><h3 id="对象创建、原型链"><a href="#对象创建、原型链" class="headerlink" title="对象创建、原型链"></a>对象创建、原型链</h3><p>字面量</p>
+<pre><code>var obj1 = {x:1,y:2};
+var obj2 = {
+    x:1,
+    s:2,
+    o:{
+        z:3,
+        n:4
+    }
+}
+</code></pre><p>new / 原型链</p>
+<pre><code>function foo(){}
+foo.protopyte.z = 3;
+var obj = new foo();
+obj.x = 1;
+obj.y = 1;
+obj.x;//1
+obj.y;//2
+obj.z;//3 沿着原型链向上查找
+//[[poto]] -&gt; foo.prototype [[poto]] -&gt; Object.prototype -&gt; null
+typeof obj.toString;//&apos;function&apos;
+&apos;z&apos; in obj;//true
+obj.hasOwnPrototy(&apos;z&apos;);//false
+obj.z = 5;//不会沿着原型链向上查找改变 z 值，仅在对象上添加属性 z = 5
+obj.hasOwnPrototy(&apos;z&apos;);//true
+foo.prototype.z;//still 3
+obj.z;//5
+obj.z=undefined;//赋值为 undefined
+obj.z;//undefined
+delete obj.z;//true
+obj.z;//still 3!!!
+</code></pre><p>Object.create</p>
+<pre><code>var obj = Object.create({x:1});
+obj.x;//1
+typeof obj.toString//&quot;function&quot;
+obj.hasOwnProtoperty(&apos;x&apos;);//false
+// 原型链上创建对象，指向  Object.prototype 
+//obj -&gt; {x:1} -&gt; Object.prototype -&gt; null
+
+var obj = Object.create(null);
+obj.toString;//undefined
+//obj -&gt; null
+</code></pre><h3 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h3><p>读写对象属性</p>
+<pre><code>var obj = {x:1,y:2};
+obj.x;//1
+obj[&apos;y&apos;];//2
+obj[&apos;x&apos;]=3;
+obj.y=4;
+var obj = {x1:1,x2:2};
+var i = 1,n = 2;
+for(;i&lt;=n;i++){
+    console.log(obj[&apos;x&apos;+i);
+}
+//输出：1,2
+var p;
+for(p in obj){//顺序不确定
+    console.log(obj[p]);
+}
+</code></pre><p>属性异常</p>
+<pre><code>var obj ={x:1};
+obj.y;//undefined
+var yz = obj.y.z;//TypeError: Cannot read property &apos;z&apos; of undefined
+obj.y.z = 2;     //TypeError: Cannot read property &apos;z&apos; of undefined
+
+var yz;
+if(obj.y){              var yz = obj &amp;&amp; obj.y &amp;&amp; obj.y.z;
+    yz = obj.y.z;
+}
+</code></pre><p>删除属性</p>
+<pre><code>var person = {age : 28,title : &apos;fe&apos;};
+delete person.age;//true
+delete person[&apos;title&apos;];//true
+person.age;//undefined
+delete person.age;//true 表示已经不存在该属性了
+
+delete Object.prototype;//false 不允许删除
+
+var descriptor = Object.getOwnPropertyDescriptor(Object,&apos;prototype&apos;);
+descriptor.configurable;//false  所以 Object.prototype 不能被删除
+//全局变量、函数不能被删除
+val globalVal = 1;
+delete globalVal;//false
+function fd(){}
+delete fd;//false
+//局部变量、函数不能被删除
+(function(){
+    var localVal=1;
+    return delete localVal;
+}());//false
+(function(){
+    function fd(){};
+    return delete fd;
+}());//false
+//隐式创建全局变量，可以被删除
+ohNo=1；
+window.ohNo;//1
+delete ohNo;//true
+</code></pre><p>检测属性</p>
+<pre><code>var cat = new Object();
+ cat.legs = 4;
+ cat.name = &apos;Kitty&apos;;
+ &apos;legs&apos; in cat;//true
+ &apos;abc&apos; in cat;//false
+ //原型链上的属性
+ &apos;toString&apos; in cat;//true,inherited property!!!
+ //检测对象上是否具有属性
+ cat.hasOwnProperty(&apos;legs&apos;);//true
+ cat.hasOwnProperty(&apos;toString&apos;);//false
+ //检测属性是否可以枚举，原型链上的属性 Enumerable 一般为 false
+ cat.propertyIsEnumerable(&apos;legs&apos;);//true
+ cat.propertyIsEnumerable(&apos;toString&apos;);//false
+ //自定义属性的 Enumerable 
+ Object.defineProperty(cat,&apos;price&apos;,{enumerable:false,value:1000});
+ cat.propertyIsEnumerable(&apos;price&apos;);//false
+ cat.hasOwnProperty(&apos;price&apos;);//true
+ if(cat&amp;&amp;cat.legs){
+ cat.legs*=2;
+ }
+ if(cat.legs!=undefined){
+ //!==undefined,or,!==null
+ }
+ if(cat.legs!==undefined){
+ //only if cat.legs is not undefined
+ }
+</code></pre><p>属性枚举</p>
+<pre><code>var o = {x:1,y:2,z:3}
+&apos;toString&apos; in o;//true
+o.propertyIsEnumerable(&apos;toString&apos;);//false
+var key;
+for(key in o){
+    console.log(key);//x,y,z|toString 不会被枚举出来
+}
+var obj = Object.create(o);
+obj.a = 4;
+var key;
+for(key in obj){
+    console.log(key);//a,x,y,z
+}
+var obj = Object.create(o);
+    obj.a = 4;
+    var key;
+    for(key in obj){
+        //过滤掉原型链上的属性
+        if(obj.hasOwnProperty(key)){
+            console.log(key);//a
+        }
+}
+</code></pre><h3 id="get-set-方法"><a href="#get-set-方法" class="headerlink" title="get/set 方法"></a>get/set 方法</h3><pre><code>var man = {
+    name:&apos;Bosn&apos;,
+    weibo:&apos;@Bosn&apos;,
+    get age(){
+        return new Date().getFullYear()-1988;
+    }
+    set age(val){
+        console.log(&apos;Age can\&apos;t be set to&apos; + val);
+    }
+}
+console.log(man.age);//27
+man.age = 100;//Age can&apos;t be set to 100
+console.log(man.age);//still 27
+
+var man = {
+    weibo:&apos;@Bosn&apos;,
+    $age : null,
+    get age(){
+        if(this.$age == undefined){
+            return new Date().getFullYear - 1988;
+        }else{
+            return this.$age;
+        }
+    }
+    set age(val){
+        val = +val;//转成 number
+        if(!isNaN(val)&amp;&amp;val&gt;0&amp;&amp;val&lt;150){
+            this.$age = +val;
+        }else{
+            throw new Error(&apos;Incorrect val = &apos;+ val);
+        }
+    }
+}
+console.log(man.age);//27
+man.age = 100;
+console.log(man.age);//100
+man.age = &apos;abc&apos;;//error:Incorrect val = NaN
+</code></pre><p>get/set 与原型链</p>
+<pre><code>function foo(){
+    Object.defineProperty(foo.propertype,&apos;z&apos;,{get :function(){return1;}});
+    var obj = new foo();
+    obj.z;//1
+    obj.z=10;//走原型上的 get/set 方法，不会给对象创建一个属性
+    obj.z;//1
+
+    Object.defineProperty(obj,&apos;z&apos;,{value:100,configurable:true});
+    obj.z;//100;
+    delete obj.z;
+    obj.z;//back to 1
+}
+</code></pre><h3 id="属性标签"><a href="#属性标签" class="headerlink" title="属性标签"></a>属性标签</h3><p>属性级的权限设置<br>value -&gt; 值，<br>writable -&gt; 是否可修改，<br>enumerable -&gt; 是否可枚举，影响 for in 中是否出现，<br>configurable -&gt; 是否可以再被修改，是否可以被 delete</p>
+<pre><code>Object.getOwnPropertyDescriptor({pro:true},&apos;pro&apos;);
+//Object{value: true, writable: true, enumerable: true, configurable: true}
+Object.getOwnPropertyDescriptor({pro:true},&apos;a&apos;);//undefined
+
+var person = {};
+Object.defineProperty(person,&apos;name&apos;,{
+    configurable: false//!!!
+    writable: false,//!!!
+    enumerable: true,
+    value: &quot;Bosn Ma&quot;
+});
+person.name;//Bosn Ma
+person.1;//
+person.name;//still Bosn Ma
+delete person.name;//false
+//再创建一个属性
+Object.defineProperty(person,&apos;type&apos;,{
+    configurable:true,
+    writable:true,
+    enumerable:false,//!!!
+    value:&quot;Object&quot;
+});
+Object.keys();//[&quot;name&quot;]
+//for in 也不存在
+//定义多个标签,不写的默认 false
+Object.defineProperties(person,{
+title:{value:&apos;fe&apos;,enumerable:true},
+crop:{value:&apos;XAXA&apos;,enumerable:true},
+salary:{value:5000,enumerable:true,writable:true},
+});
+Object.getOwnPropertyDescriptor(person,&apos;salary&apos;);
+//Object {value: 5000, writable: true, enumerable: true, configurable: false}
+Object.getOwnPropertyDescriptor(person,&apos;crop&apos;);
+//Object {value: &quot;XAXA&quot;, writable: false, enumerable: true, configurable: false}
+
+ Object.defineProperties(person,{
+title:{value:&apos;fe&apos;,enumerable:true},
+crop:{value:&apos;XAXA&apos;,enumerable:true},
+salary:{value:5000,enumerable:true,writable:true},
+luck:{
+    get:function(){return Math.random()&gt;0.5?&apos;good&apos;:&apos;bad&apos;;}
+},
+promote:{
+    set:function(level){ this.salary*=1+level*0.1;}
+}
+});
+Object.getOwnPropertyDescriptor(person,&apos;salary&apos;);
+//Object {value: 5000, writable: true, enumerable: true, configurable: false}
+Object.getOwnPropertyDescriptor(person,&apos;crop&apos;);
+//Object {value: &quot;XAXA&quot;, writable: false, enumerable: true, configurable: false}
+person.salary;//5000
+person.promote = 2;
+person.salary;//6000
+
+            configurable:true  configurable:true  configurable:false  configurable:false
+            writable:true      writable:false     writable:false      writable:false
+
+修改属性的值      √                  √                 √                 ×
+                              重设 value 标签修改
+
+通过属性赋值      √                  ×                 √                 ×
+修改属性的值
+
+delete 该属性     √                  √                 ×                 ×
+返回 true
+
+修改 getter/      √                  √                 ×                 ×
+setter fangf
+
+修改属性标签*
+(除了 writable    √                  √                 ×                 ×
+从 true 改为 
+false 总是允
+许的)
+</code></pre><h3 id="对象、标签序列化"><a href="#对象、标签序列化" class="headerlink" title="对象、标签序列化"></a>对象、标签序列化</h3><pre><code>//原型标签 [[ptoto]] 指向对象的 Object.prototype 属性
+//[[class]] 表示对象的类型
+var toString = Object.prototype.toString;
+function getType(o){return toString.call(o).slice(8,-1);};
+toString.call(null);//&quot;[object Null]&quot;
+getType(null);//&quot;Null&quot;
+getType(undefined);//&quot;Undefined&quot;
+getType(1);//&quot;Number&quot;
+getType(new Number(1));//&quot;Number&quot;
+typeof new Number(1);//object
+getType(true);//&quot;Boolean&quot;
+getType(new Boolean(true));//&quot;Boolean&quot;
+//[[extensible]]
+var obj = {x:1,y:2};
+Object.isExtensible(obj);//true
+Object.preventExtensions(obj);
+Object.isExtensible(obj);//false
+obj.z=;
+obj.z;//undefined; add new property failed
+Object.getOwnPropertyDescriptor(obj,&apos;x&apos;);
+//Object {value: 1, writable: true, enumerable: true, configurable: true}
+
+Object.seal(obj);
+Object.getOwnPropertyDescriptor(obj,&apos;x&apos;);
+//{value: 1, writable: true, enumerable: true, configurable: false}
+
+Object.freeze(obj);
+Object.getOwnPropertyDescriptor(obj,&apos;x&apos;);
+//{value: 1, writable: false, enumerable: true, configurable: false}
+//[causion] not affects prototype chain!!!不影响原型链
+</code></pre><p>序列化其他对象方法</p>
+<pre><code>var obj = {x:1,y:true,z:[1,2,3],nullVal:null}; 
+JSON.stringify(obj)//&quot;{&quot;x&quot;:1,&quot;y&quot;:true,&quot;z&quot;:[1,2,3],&quot;nullVal&quot;:null}&quot;
+//值为 undefined 时不会出现在 序列化结果中。NaN -&gt; null 。 Infiniti -&gt; null。时间 -&gt; UTC
+obj = {val:undefined,a:NaN,b:Infinity,c:new Date()};
+JSON.stringify(obj);//&quot;{&quot;a&quot;:null,&quot;b&quot;:null,&quot;c&quot;:&quot;2017-10-19T05:21:24.228Z&quot;}&quot;
+obj = JSON.parse(&apos;{&quot;x&quot;:1}&apos;);
+obj.x;//1
+</code></pre><p>自定义序列化</p>
+<pre><code>var obj = {
+    x:1,
+    y:2,
+    o:{
+        o1:1,
+        o2:2,
+        toJSON:function(){return this.o1+this.o2;}
+    }
+};
+JSON.stringify(obj);
+//&quot;{&quot;x&quot;:1,&quot;y&quot;:2,&quot;o&quot;:3}&quot;
+</code></pre><p>其它对象方法</p>
+<pre><code>var obj = {x:1,y:2};
+obj.toString();//&quot;[object Object]&quot;
+obj.toString = function(){return this.x+this.y};
+&quot;Result&quot; + obj;//&quot;Result 3&quot;,by toString
+
++obj;//3,from toString
+//强制转化为基本类型时调用 valueOf
+obj.valueOf = function(){return this.x+this.y + 100;};
++ obj;//103,from valueOf
+
+&quot;Resault&quot;+obj still &quot;Resault 103&quot;
+</code></pre><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>数组是值得有序集合，每个值叫做元素，每个元素在数组中都有数组位置编号，也就是索引。<br>JS 数组是弱类型的，数组中可以含有不同类型的元素。数组元素甚至可以是对象或其它数组。</p>
+<pre><code>var arr = [1,true,null,undefined,{x:1},[1,2,3]];
+        arr[0]    arr[2]       arr[4].x    arr[5][2]
+</code></pre><h3 id="数组创建"><a href="#数组创建" class="headerlink" title="数组创建"></a>数组创建</h3><pre><code>//字面量
+var BAT = [&apos;Alibaba&apos;,&apos;Tencent&apos;,&apos;Baidu&apos;];
+var students = [{name:&apos;XA&apos;,age:22},name:&apos;XB&apos;,age:20];
+var arr = [&apos;Nunnly&apos;,&apos;is&apos;,&apos;big&apos;,&apos;keng&apos;,&apos;B&apos;,123,true,null];
+var arrInArr = [[1,2],[3,4,5];
+var commasArr1 = [1,,2];//1,undefined,2
+var commasArr2 = [,,];//undefined,undefined 数组允许最后一个 ,
+//数组大小
+//size from 0 to 4294967295(2^23-1) 超过报错 RangeError
+//new Array()
+var arr = new Array();//new 可以省略
+var arrWithLength = new Array(100);//undefined * 100
+var arrlikeLiteral = new Array(true,false,null,1,2,&apos;hi&apos;);
+//等价于 [true, false, null, 1, 2, &apos;hi&apos;];
+</code></pre><h3 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h3><pre><code>//数组元素读写
+var arr = [1,2,3,4,5];
+arr[1];//2
+arr.length;//5
+arr[5]=6;
+arr.length;//6
+delete arr[0];
+arr[0];//undefined
+//数组元素增删， 动态的， 无需指定大小
+arr arr = [];
+arr[0] = 1;
+arr[1] = 2;
+arr.push(3);
+arr;//[1,2,3];
+arr[arr.length] = 4;//equal to arr.push(4);
+arr;//[1,2,3,4]
+arr.unshift(0);
+arr;//[0,1,2,3,4];
+delete arr[2];
+arr;//[0,1,undefined,3,4]
+arr.length -= 1;
+arr;//[0,1,undefined,3], 4 is removed
+arr;//[0,1,undefined],3 is removed
+arr.shift();//0 returned by shift
+arr;//[1,undefined]
+//数组迭代
+var i = 0,n = 10;
+var arr = [1,2,3,4,5];
+for(;i&lt;n;i++){
+    console.log(arr[i]);//1,2,3,4,5
+}
+for(i in arr){
+    console.log(arr[i]);//1,2,3,4,5
+}
+Array.prototype.x = &apos;inherited&apos;;
+for(i in arr){
+    console.log(arr[i]);//1,2,3,4,5,inherited
+}
+for(i in arr){
+    if(arr.hasOwnProperty[i]){
+        console.log(arr[i]);//1,2,3,4,5        
+    }
+}//!!! for in 是不保证顺序的！！！
+</code></pre><h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><pre><code>var arr = [[0,1],[2,3],[4,5]];  //result:
+var i = 0,j = 0;                //row 0
+var row;                        //0
+for(;i&lt;arr.length;i++){         //1
+    row = arr[i];               //row 1
+    console.log(&apos;row &apos;+i);      //2
+    for(j=0;j&lt;row.length;j++){  //3
+        console.log(row[j]);    //row 2
+    }                           //4
+}                               //5
+</code></pre><h3 id="稀疏数组"><a href="#稀疏数组" class="headerlink" title="稀疏数组"></a>稀疏数组</h3><p>稀疏数组并不含有从 0 开始的连续索引。一般 length 属性值比实际元素个数大。</p>
+<pre><code>var arr1 = [undefined];
+var arr2 = new Array(1);
+0 in arr1;//true
+0 in arr2;//false
+arr1.length = 100;
+arr1[99] = 123;
+99 in arr1;// true
+98 in arr1;// false
+var arr =[,,];
+0 in arr;// false
+</code></pre><h3 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h3><pre><code>{} =&gt; Object.prototype
+[] =&gt; Array.prototype
+Array.prototype.join
+Array.prototype.reverse
+Array.prototype.sort
+Array.prototype.concat
+Array.prototype.slice//切片
+Array.prototype.splice//胶接
+Array.prototype.forEach (ES5）
+Array.prototype.map     (ES5）
+Array.prototype.filter  (ES5）
+Array.prototype.every   (ES5）
+Array.prototype.some    (ES5）
+Array.prototype.reduce/reduceRight (ES5）
+Array.prototype.indexOf/lastindexOf (ES5）
+Array.isArray (ES5）
+</code></pre><ul>
+<li><p>Array.prototype.join 将数组转为字符串</p>
+<pre><code>var arr = [1,2,3];
+arr.join();//&quot;1,2,3&quot;
+arr.join(&quot;_&quot;);//&quot;1_2_3&quot;
+function repeatString(str,n){
+    return new Array(n+1).join(str);
+}
+repeatString(&quot;a&quot;,3);//&quot;aaa&quot;
+repeatString(&quot;Hi&quot;,5);//&quot;HiHiHiHiHi&quot;
+</code></pre></li>
+<li><p>Array.prototype.reverse 将数组逆序</p>
+<pre><code>var arr = [1,2,3];
+arr.reserve();//[3,2,1]
+arr;//[3,2,1] 原数组被修改
+</code></pre></li>
+<li><p>Array.prototype.sort 排序</p>
+<pre><code>var arr = [&quot;a&quot;,&quot;d&quot;,&quot;c&quot;,&quot;b&quot;];
+arr.sort();//[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;]
+arr = [13,24,51,3];
+arr.sort();//[13,24,3,51]
+arr;//[13,24,3,51] 默认按字母顺序排序，原数组被修改
+arr.sort(function(a,b){
+    return a - b;
+});
+arr;//3,13,24,51
+arr = [{age:25},{age:39},{age:49}];
+arr.sort(function(a,b){
+    return a.age - b.age;
+});
+arr.forEach(function(item){
+    console.log(&quot;age&quot;,item.age);
+});
+//age 25
+//age 39
+//age 49
+</code></pre></li>
+<li><p>Array.prototype.concat 数组合并</p>
+<pre><code>var arr = [1,2,3];
+arr.concat(4,5);//[1,2,3,4,5]
+arr;//[1,2,3]//原数组未被修改
+arr.concat([10,11],13);//[1,2,3,10,11,13]
+arr.concat(1,[2,3]);//[1,2,3,1,[2,3]]
+</code></pre></li>
+<li><p>Array.prototype.slice 返回部分数组</p>
+<pre><code>var arr = [1,2,3,4,5];
+arr.slice(1,3);//[2,3]
+arr.slice(1);//[2,3,4,5]
+arr.slice(1,-1);//[2,3,4]//-1 表示倒数第一个元素
+arr.slice(-4,-3);//[2]
+arr;[1,2,3,4,5];//原数组中元素不被修改
+</code></pre></li>
+<li><p>Array.prototype.splice 数组拼接</p>
+<pre><code>var arr = [1,2,3,4,5];
+arr.splice(2);//returns [3,4,5],把从 3 开始的元素作为返回值并删除掉
+arr;//[1,2];//原数组被修改
+var arr = [1,2,3,4,5];
+arr.splice(2,2);//returns [3,4],把从 2 开始的 2 个元素作为返回值并删除掉
+arr;//[1,2,5];//原数组被修改
+var arr = [1,2,3,4,5];
+arr.splice(1,1,&apos;a&apos;,&apos;b&apos;);//returns [2],把从 1 开始的 1 个元素作为返回值并删除掉，在删除的位置插入 &apos;a&apos;,&apos;b&apos;
+arr;//[1,2];//原数组被修改
+</code></pre></li>
+<li><p>Array.prototype.forEach 数组遍历 [ES5 ie9 +]</p>
+<pre><code>var arr = [1,2,3,4,5];
+arr.forEach(function(x,index,a){
+    console.log(x+&apos;|&apos;+index+&apos;|&apos;+(a===arr));
+});
+//1|0|true
+//2|1|true
+//3|2|true
+//4|3|true
+//5|4|true
+</code></pre></li>
+<li><p>Array.prototype.map 数组映射 [ES5 ie9 +]</p>
+<pre><code>var arr = [1,2,3];
+arr.map(function(x){
+    return x+10;
+});//[11,12,13]
+arr;//[1,2,3] 原数组未被修改
+</code></pre></li>
+<li><p>Array.prototype.filter 数组过滤 [ES5 ie9 +]       </p>
+<pre><code>var arr = [1,2,3,4,5,6,7,8,9,10];
+arr.filter(function(x,index){
+    return index % 3 === 0 || x &gt;= 8;
+});//return [1,4,7,8,9,10]
+arr;//[1,2,3,4,5,6,7,8,9,10] 原数组未被修改
+</code></pre></li>
+<li><p>Array.prototype.every &amp; some 数组判断 [ES5 ie9 +] </p>
+<pre><code>var arr = [1,2,3,4,5];
+//every 每一个元素都符合条件
+arr.every(function(x){
+    return x&lt;10;
+});//true
+arr.every(function(x){
+    return x&lt;3;
+});//false
+var arr = [1,2,3,4,5];
+//every 只要一个元素都符合条件
+arr.some(function(x){
+    return x === 3;
+});//true
+arr.some(function(x){
+    return x === 100;
+});//false
+</code></pre></li>
+<li><p>Array.prototype.reduce &amp; reduceRight 数组元素两两操作 [ES5 ie9 +] </p>
+<pre><code>//reduce
+var arr = [1,2,3];
+var sum = arr.reduce(function(x,y){
+    return x+y
+},0);// 0 表示操作的第一个元素，不传就指向数组的第一个元素，第一次的返回值作为第二次的 x
+sum;//6 
+arr;//[1,2,3] 原数组不被修改
+arr;//[3,9,6]
+var max = arr.reduce(function(x,y){
+    console.log(x + &apos;|&apos; + y);
+    return x &gt; y ? x : y;
+});//6
+arr;//[1,2,3]
+//3:9
+//9:6
+max;//9
+//reduceRight
+arr;//[3,9,6]
+var max = arr.reduce(function(x,y){
+    console.log(x + &apos;|&apos; + y);
+    return x &gt; y ? x : y;
+});//6
+arr;//[1,2,3]
+//9:6
+//9:3
+max;//9
+</code></pre></li>
+<li><p>Array.prototype.indexOf &amp; lastIndexOf 数组检索 [ES5 ie9 +] </p>
+<pre><code>var arr = [1,2,3,2,1];
+arr.indexOf(2);//1
+arr.indexOf(99);//-1 //找不到就返回 -1
+arr.indexOf(2,1);//3 从第 1 个元素开始找 2
+arr.indexOf(1,-3);//4 从倒数第 3 个元素开始找 1
+arr.indexOf(2,-1);//-1
+arr.LastIndexOf(2);//3
+arr.LastIndexOf(2,-2);//3
+arr.LastIndexOf(2,-3);//1
+</code></pre></li>
+<li><p>Array.isArray 判断是否为数组 [ES5 ie9 +] </p>
+<pre><code>Array.isArray([]);//true
+
+[]instanceof Array;//true
+({}).toString.apply([])=== [object Array];//true
+[].constructor === Array;//true 
+</code></pre></li>
+</ul>
+<h3 id="数组和一般对象的比较"><a href="#数组和一般对象的比较" class="headerlink" title="数组和一般对象的比较"></a>数组和一般对象的比较</h3><ul>
+<li><p>相同</p>
+<pre><code>都可以继承
+数组是对象，对象不一定是数组
+都可以当作对象添加或删除属性
+</code></pre></li>
+<li><p>不同</p>
+<pre><code>数组自动更新 length 
+按索引访问数组常常比访问一般对象属性明显迅速
+数组对象继承 Array.prototype 上的大量数组操作方法
+</code></pre></li>
+</ul>
+<h3 id="数组和字符串"><a href="#数组和字符串" class="headerlink" title="数组和字符串"></a>数组和字符串</h3><pre><code>var str = &quot;hello world&quot;;
+str.charAt(0);//&quot;h&quot;
+str[1];//e
+
+Array.prototype.join.call(str,&quot;_&quot;);
+//&quot;h_e_l_l_o_ _w_o_r_l_d&quot;
 </code></pre>
       
 
@@ -715,11 +1555,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,11 +1567,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
