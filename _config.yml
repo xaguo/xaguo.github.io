@@ -103,8 +103,8 @@ deploy:
 #  port: 22
 
   type: git
-  repository: git@github.com:guoxa/xaguo.github.io.git
-  branch: master
+  repository: https://github.com/xaguo/xaguo.github.io
+  branch: gh-pages
 
 sitemap:
     path: sitemap.xml
