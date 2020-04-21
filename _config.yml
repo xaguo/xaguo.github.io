@@ -103,7 +103,7 @@ deploy:
 #  port: 22
 
   type: git
-  repository: https://github.com/xaguo/xaguo.github.io
+  repository: git@github.com:xaguo/xaguo.github.io
   branch: master
 
 sitemap:
